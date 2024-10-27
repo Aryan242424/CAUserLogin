@@ -30,6 +30,7 @@ public class DBUserDataAccessObject implements SignupUserDataAccessInterface,
     private static final String PASSWORD = "password";
     private static final String MESSAGE = "message";
     private final UserFactory userFactory;
+    private String currentUser;
 
     public DBUserDataAccessObject(UserFactory userFactory) {
         this.userFactory = userFactory;
@@ -63,6 +64,27 @@ public class DBUserDataAccessObject implements SignupUserDataAccessInterface,
         catch (IOException | JSONException ex) {
             throw new RuntimeException(ex);
         }
+    }
+
+    /**
+     * Sets current user.
+     * now
+     * @param name is used.
+     */
+    @Override
+    public void setCurrentUser(String name) {
+        this.currentUser = name;
+    }
+
+    /**
+     * Sets the current user.
+     * the username to look up
+     *
+     * @return current user
+     */
+    @Override
+    public String getCurrentUser() {
+        return "";
     }
 
     @Override
